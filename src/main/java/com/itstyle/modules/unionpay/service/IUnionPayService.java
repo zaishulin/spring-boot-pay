@@ -2,7 +2,6 @@ package com.itstyle.modules.unionpay.service;
 
 import java.util.Map;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.itstyle.common.model.Product;
 
 public interface IUnionPayService {

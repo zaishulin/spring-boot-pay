@@ -11,7 +11,7 @@ public enum PayWay {
 	private Short code;
 	private String name;
 	
-	private PayWay(String name, Short code) {
+	PayWay(String name, Short code) {
 		this.name = name;
 		this.code = code;
 	}

@@ -1,7 +1,6 @@
 package com.itstyle.modules.alipay.service;
 import java.util.Map;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.itstyle.common.model.Product;
 /**
  * 扫码支付以及手机H5支付

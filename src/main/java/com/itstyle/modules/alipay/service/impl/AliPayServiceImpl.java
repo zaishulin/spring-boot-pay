@@ -1,27 +1,11 @@
 package com.itstyle.modules.alipay.service.impl;
 
-import java.io.File;
-import java.util.Map;
-
-import com.alibaba.dubbo.config.annotation.Service;
-import net.sf.json.JSONObject;
-
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayResponse;
 import com.alipay.api.domain.AlipayTradeAppPayModel;
 import com.alipay.api.internal.util.AlipaySignature;
-import com.alipay.api.request.AlipayDataDataserviceBillDownloadurlQueryRequest;
-import com.alipay.api.request.AlipayTradeAppPayRequest;
-import com.alipay.api.request.AlipayTradeCloseRequest;
-import com.alipay.api.request.AlipayTradePagePayRequest;
-import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.alipay.api.request.*;
 import com.alipay.api.response.AlipayDataDataserviceBillDownloadurlQueryResponse;
 import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.alipay.api.response.AlipayTradeCloseResponse;
@@ -35,9 +19,18 @@ import com.alipay.demo.trade.model.result.AlipayF2FRefundResult;
 import com.alipay.demo.trade.utils.ZxingUtils;
 import com.itstyle.common.constants.Constants;
 import com.itstyle.common.model.Product;
-import com.itstyle.common.utils.CommonUtil;
+import com.itstyle.common.util.CommonUtils;
 import com.itstyle.modules.alipay.service.IAliPayService;
 import com.itstyle.modules.alipay.util.AliPayConfig;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.io.File;
+import java.util.Map;
 /**
  * 支付宝
  * 创建者 科帮网
@@ -79,7 +72,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		String imgPath= Constants.QRCODE_PATH+Constants.SF_FILE_SEPARATOR+product.getOutTradeNo()+".png";
 		String outTradeNo = product.getOutTradeNo();
 		String subject = product.getSubject();
-		String totalAmount =  CommonUtil.divide(product.getTotalFee(), "100").toString();
+		String totalAmount =  CommonUtils.divide(product.getTotalFee(), "100").toString();
 		// 如果该字段为空，则默认为与支付宝签约的商户的PID，也就是appid对应的PID
 		String sellerId = "";
 		// (必填) 商户门店编号，通过门店号和商家后台可以配置精准到门店的折扣信息，详询支付宝技术支持
@@ -147,7 +140,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		 // (必填) 外部订单号，需要退款交易的商户外部订单号
         String outTradeNo = product.getOutTradeNo();
         // (必填) 退款金额，该金额必须小于等于订单的支付金额，单位为元
-        String refundAmount = CommonUtil.divide(product.getTotalFee(), "100").toString();
+        String refundAmount = CommonUtils.divide(product.getTotalFee(), "100").toString();
 
         // (必填) 退款原因，可以说明用户退款原因，方便为商家后台提供统计
         String refundReason = "正常退款，用户买多了";

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itstyle.common.utils.DateUtil;
+import com.itstyle.common.util.DateUtils;
 @Api(tags ="支付后台")
 @Controller
 @RequestMapping(value = "pay")
@@ -38,7 +38,7 @@ public class PayController {
 	public String main(HttpServletRequest request, HttpServletResponse response,Model model) throws Exception {
 		model.addAttribute("ip", "192.168.1.66");
 		model.addAttribute("address", "青岛");
-		model.addAttribute("time", DateUtil.getTime());
+		model.addAttribute("time", DateUtils.getTime());
 		return "web/main";
 	}
 }
