@@ -3,7 +3,7 @@
 | 软件 | 版本  | 功能|   地址|
 | ---- | ----- |----- |----- |
 |   Spring-Boot|  2.0.1 |  快速开发框架   | https://spring.io/projects/spring-boot  |
-|   Dubbo| 2.6.5 |   RPC中间件|  http://dubbo.apache.org/ |
+|   Dubbo| 2.7.3 |   RPC中间件|  http://dubbo.apache.org/ |
 |   Nacos| 2.6.7|  注册中心 | https://nacos.io/zh-cn/docs/quick-start.html  |
 
 Nacos后台管理：http://47.104.197.9:8848/nacos/
