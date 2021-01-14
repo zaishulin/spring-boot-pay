@@ -22,6 +22,6 @@ public class Application {
 
 	public static void main(String[] args){
 		SpringApplication.run(Application.class, args);
-        LOGGER.info("支付项目启动，官网：https://pay.cloudbed.vip");
+        LOGGER.info("支付项目启动");
 	}
 }
